@@ -1,0 +1,13 @@
+{
+  "name": "BLRScraper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Kyle Schwartz",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.16.3"
+  }
+}

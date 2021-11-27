@@ -2,6 +2,7 @@
 	import Input from "./Input.svelte";
 	import Clipboard from "clipboard";
 	import { scopes, primary, secondary, gear, tactical } from "./data.js";
+	import specs from "./specs.json";
 
 	new Clipboard(".copy");
 
@@ -26,11 +27,11 @@
 				Scope: "4X Ammo Counter Scope",
 				Grip: "",
 			},
-			Gear1: 0,
-			Gear2: 0,
-			Gear3: 0,
-			Gear4: 0,
-			Tactical: 0,
+			Gear1: "Frag Grenade Mk.1",
+			Gear2: "Combat Knife Mk.1",
+			Gear3: "Shock Grenade Mk.1",
+			Gear4: "EMP Grenade Mk.1",
+			Tactical: "Heal Injector Mk.1",
 		},
 		{
 			Primary: {
@@ -51,11 +52,11 @@
 				Scope: "4X Ammo Counter Scope",
 				Grip: "",
 			},
-			Gear1: 0,
-			Gear2: 0,
-			Gear3: 0,
-			Gear4: 0,
-			Tactical: 0,
+			Gear1: "Frag Grenade Mk.1",
+			Gear2: "Combat Knife Mk.1",
+			Gear3: "Shock Grenade Mk.1",
+			Gear4: "EMP Grenade Mk.1",
+			Tactical: "Heal Injector Mk.1",
 		},
 		{
 			Primary: {
@@ -76,22 +77,28 @@
 				Scope: "4X Ammo Counter Scope",
 				Grip: "",
 			},
-			Gear1: 0,
-			Gear2: 0,
-			Gear3: 0,
-			Gear4: 0,
-			Tactical: 0,
+			Gear1: "Frag Grenade Mk.1",
+			Gear2: "Combat Knife Mk.1",
+			Gear3: "Shock Grenade Mk.1",
+			Gear4: "EMP Grenade Mk.1",
+			Tactical: "Heal Injector Mk.1",
 		},
 	];
 
 	$: template =
 		"register\n" +
-		JSON.stringify({
-			PlayerName: user,
-			Loadout1: loadouts[0],
-			Loadout2: loadouts[1],
-			Loadout3: loadouts[2],
-		});
+		JSON.stringify(
+			{
+				PlayerName: user,
+				Loadout1: loadouts[0],
+				Loadout2: loadouts[1],
+				Loadout3: loadouts[2],
+			},
+			null,
+			2
+		);
+
+	$: console.log(specs["Receivers"][loadouts[0].Primary.Reciever]);
 </script>
 
 <div class="App">
@@ -129,11 +136,13 @@
 	<ul class="uk-switcher uk-margin">
 		{#each loadouts as loadout}
 			<li>
-				<form>
-					<fieldset class="uk-fieldset uk-grid-small" uk-grid>
-						{#each ["Primary", "Secondary"] as A, i}
+				<form class="uk-form-stacked uk-grid-small" uk-grid>
+					{#each ["Primary", "Secondary"] as A, i}
+						<div class="uk-width-1-1">
 							<legend class="uk-legend">{A} Weapon</legend>
+						</div>
 
+						<div class="uk-width-1-2">
 							<Input
 								bind:loadout
 								name={"Reciever"}
@@ -190,11 +199,16 @@
 										.grips}
 								/>
 							{/if}
-						{/each}
+						</div>
+						<div class="uk-width-1-2">Specs</div>
+					{/each}
 
+					<div class="uk-width-1-1">
 						<legend class="uk-legend">Gear</legend>
+					</div>
+					<div class="uk-width-1-2">
 						{#each [1, 2, 3, 4] as i}
-							<div class="uk-margin">
+							<div class="uk-margin-small">
 								<label class="uk-form-label" for="gear{i}"
 									>Gear {i}</label
 								>
@@ -212,7 +226,7 @@
 							</div>
 						{/each}
 
-						<div class="uk-margin">
+						<div class="uk-margin-small">
 							<label class="uk-form-label" for="tactical"
 								>Tactical</label
 							>
@@ -228,7 +242,7 @@
 								</select>
 							</div>
 						</div>
-					</fieldset>
+					</div>
 				</form>
 			</li>
 		{/each}
