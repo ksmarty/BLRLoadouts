@@ -100,7 +100,7 @@ const funcs = [
 		const rawSpread = await page
 			.locator(".pi-horizontal-group-item")
 			.allInnerTexts();
-			
+
 		return {
 			[key]: {
 				...rawData
@@ -126,10 +126,16 @@ const funcs = [
 
 const abc = [
 	{
-		url: "https://blacklight.fandom.com/wiki/Receiver",
-		selector: ".mw-parser-output > ul > li > a",
-		fileName: "Receivers",
-		func: funcs[3],
+		url: "https://blacklight.fandom.com/wiki/Muzzle",
+		selector: "h2 + .article-table td:nth-child(2) > a",
+		fileName: "Muzzles",
+		func: funcs[0],
+	},
+	{
+		url: "https://blacklight.fandom.com/wiki/Muzzle",
+		selector: "p + .article-table td:nth-child(2) > a",
+		fileName: "Grips",
+		func: funcs[0],
 	},
 	{
 		url: "https://blacklight.fandom.com/wiki/Stock",
@@ -146,7 +152,7 @@ const abc = [
 	{
 		url: "https://blacklight.fandom.com/wiki/Ammunition",
 		selector: ".mw-parser-output > ul > li > a",
-		fileName: "Ammo",
+		fileName: "Magazines",
 		func: funcs[1],
 	},
 	{
@@ -154,6 +160,12 @@ const abc = [
 		selector: "table.article-table > tbody:nth-child(2)",
 		fileName: "Scopes",
 		func: funcs[2],
+	},
+	{
+		url: "https://blacklight.fandom.com/wiki/Receiver",
+		selector: ".mw-parser-output > ul > li > a",
+		fileName: "Receivers",
+		func: funcs[3],
 	},
 ];
 
@@ -194,6 +206,25 @@ for (let { url, selector, fileName, func } of abc) {
 }
 
 await browser.close();
+
+combined.Receivers = {
+	...combined.Receivers,
+	"Snub 260": {
+		Damage: "60",
+		Ammo: "8/16",
+		Reload: "2.67s",
+		"Fire Mode": "Semi-Automatic",
+		Firerate: "600",
+		Zoom: "1.30",
+		Recoil: "32.28°",
+		"Scope In": "0.22s",
+		Range: "10/15",
+		Run: "7.79",
+		Aim: "1.15°",
+		Hip: "2.86°",
+		Move: "5.66°",
+	},
+};
 
 await promisify(writeFile)(
 	`./scaped_data.json`,

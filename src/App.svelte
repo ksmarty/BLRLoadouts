@@ -1,8 +1,10 @@
 <script>
 	import Input from "./Input.svelte";
+	import Specs from "./Specs.svelte";
+
 	import Clipboard from "clipboard";
+
 	import { scopes, primary, secondary, gear, tactical } from "./data.js";
-	import specs from "./specs.json";
 
 	new Clipboard(".copy");
 
@@ -97,11 +99,9 @@
 			null,
 			2
 		);
-
-	$: console.log(specs["Receivers"][loadouts[0].Primary.Reciever]);
 </script>
 
-<div class="App">
+<div class="App uk-padding-small">
 	<h1>BLR Loadout Generator</h1>
 
 	<div class="uk-margin">
@@ -126,6 +126,8 @@
 		class="uk-button uk-button-primary copy"
 		data-clipboard-text={template}>Copy to Clipboard</button
 	>
+
+	<hr class="uk-divider-icon" />
 
 	<ul uk-tab>
 		<li><a href="#">Loadout 1</a></li>
@@ -156,7 +158,7 @@
 								itter={Object.entries(
 									(!i ? primary : secondary)[
 										loadout[A].Reciever
-									].ammo
+									].magazines
 								)}
 							/>
 							<Input
@@ -200,47 +202,47 @@
 								/>
 							{/if}
 						</div>
-						<div class="uk-width-1-2">Specs</div>
+						<div class="uk-width-1-2">
+							<Specs {loadout} primary={!i} />
+						</div>
 					{/each}
 
 					<div class="uk-width-1-1">
 						<legend class="uk-legend">Gear</legend>
 					</div>
-					<div class="uk-width-1-2">
-						{#each [1, 2, 3, 4] as i}
-							<div class="uk-margin-small">
-								<label class="uk-form-label" for="gear{i}"
-									>Gear {i}</label
-								>
-								<div class="uk-form-controls">
-									<select
-										class="uk-select"
-										id="gear{i}"
-										bind:value={loadout[`Gear${i}`]}
-									>
-										{#each Object.entries(gear) as e}
-											<option>{e[0]}</option>
-										{/each}
-									</select>
-								</div>
-							</div>
-						{/each}
-
-						<div class="uk-margin-small">
-							<label class="uk-form-label" for="tactical"
-								>Tactical</label
+					{#each [1, 2, 3, 4] as i}
+						<div class="uk-margin-small-top uk-width-1-2">
+							<label class="uk-form-label" for="gear{i}"
+								>Gear {i}</label
 							>
 							<div class="uk-form-controls">
 								<select
 									class="uk-select"
-									id="tactical"
-									bind:value={loadout.Tactical}
+									id="gear{i}"
+									bind:value={loadout[`Gear${i}`]}
 								>
-									{#each Object.entries(tactical) as e}
+									{#each Object.entries(gear) as e}
 										<option>{e[0]}</option>
 									{/each}
 								</select>
 							</div>
+						</div>
+					{/each}
+
+					<div class="uk-width-1-2">
+						<label class="uk-form-label" for="tactical"
+							>Tactical</label
+						>
+						<div class="uk-form-controls">
+							<select
+								class="uk-select"
+								id="tactical"
+								bind:value={loadout.Tactical}
+							>
+								{#each Object.entries(tactical) as e}
+									<option>{e[0]}</option>
+								{/each}
+							</select>
 						</div>
 					</div>
 				</form>

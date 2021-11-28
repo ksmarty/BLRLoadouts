@@ -126,7 +126,7 @@ const scopes = [
 
 const primary = {
 	"AK470 Rifle": {
-		ammo: {
+		magazines: {
 			Standard: "195",
 			Light: "196",
 			Quick: "197",
@@ -144,7 +144,7 @@ const primary = {
 		muzzles: muzzles[1],
 	},
 	"Anti-Materiel Rifle": {
-		ammo: {
+		magazines: {
 			Standard: "90",
 			Light: "91",
 			Quick: "92",
@@ -162,7 +162,7 @@ const primary = {
 		muzzles: muzzles[0],
 	},
 	"Assault Rifle": {
-		ammo: {
+		magazines: {
 			Standard: "9",
 			Light: "10",
 			Quick: "11",
@@ -182,7 +182,7 @@ const primary = {
 		muzzles: muzzles[1],
 	},
 	"Bolt-Action Rifle": {
-		ammo: {
+		magazines: {
 			Standard: "90",
 			Light: "91",
 			Quick: "92",
@@ -195,11 +195,12 @@ const primary = {
 			Magnum: "165",
 		},
 		barrels: barrels[0],
+		stocks: stocks[0],
 		grips: grips[0],
 		muzzles: muzzles[1],
 	},
 	"Bullpup Full Auto": {
-		ammo: {
+		magazines: {
 			Standard: "149",
 			Light: "150",
 			Quick: "151",
@@ -217,7 +218,7 @@ const primary = {
 		muzzles: muzzles[1],
 	},
 	"Burstfire Rifle": {
-		ammo: {
+		magazines: {
 			Standard: "81",
 			Light: "82",
 			Quick: "83",
@@ -235,7 +236,7 @@ const primary = {
 		muzzles: muzzles[1],
 	},
 	"Burstfire SMG": {
-		ammo: {
+		magazines: {
 			Standard: "140",
 			Light: "141",
 			Quick: "142",
@@ -253,7 +254,7 @@ const primary = {
 		muzzles: muzzles[1],
 	},
 	"Combat Rifle": {
-		ammo: {
+		magazines: {
 			Standard: "20",
 			Light: "21",
 			Quick: "22",
@@ -271,7 +272,7 @@ const primary = {
 		muzzles: muzzles[1],
 	},
 	"Compound Bow": {
-		ammo: {
+		magazines: {
 			Standard: "205",
 			Explosive: "206",
 			Stun: "207",
@@ -286,7 +287,7 @@ const primary = {
 		muzzles: muzzles[0],
 	},
 	"Heavy Assault Rifle": {
-		ammo: {
+		magazines: {
 			Standard: "115",
 			Light: "116",
 			Quick: "117",
@@ -304,7 +305,7 @@ const primary = {
 		muzzles: muzzles[1],
 	},
 	"Light Machine Gun": {
-		ammo: {
+		magazines: {
 			Standard: "39",
 			Quick: "40",
 			Electro: "41",
@@ -319,7 +320,7 @@ const primary = {
 		muzzles: muzzles[1],
 	},
 	"Light Recon Rifle": {
-		ammo: {
+		magazines: {
 			Standard: "212",
 			Light: "213",
 			Quick: "214",
@@ -332,7 +333,7 @@ const primary = {
 		muzzles: muzzles[1],
 	},
 	"LMG Recon": {
-		ammo: {
+		magazines: {
 			Standard: "104",
 			Light: "105",
 			Heavy: "106",
@@ -348,7 +349,7 @@ const primary = {
 		muzzles: muzzles[1],
 	},
 	"M4X Rifle": {
-		ammo: {
+		magazines: {
 			Standard: "185",
 			Light: "186",
 			Quick: "187",
@@ -366,7 +367,7 @@ const primary = {
 		muzzles: muzzles[1],
 	},
 	None: {
-		ammo: {
+		magazines: {
 			Standard: "9",
 		},
 		barrels: barrels[5],
@@ -375,7 +376,7 @@ const primary = {
 		muzzles: muzzles[0],
 	},
 	"Prestige Assault Rifle": {
-		ammo: {
+		magazines: {
 			Standard: "9",
 			Light: "10",
 			Quick: "11",
@@ -395,7 +396,7 @@ const primary = {
 		muzzles: muzzles[1],
 	},
 	"Submachine Gun": {
-		ammo: {
+		magazines: {
 			Standard: "0",
 			Light: "1",
 			Quick: "2",
@@ -413,7 +414,7 @@ const primary = {
 		muzzles: muzzles[1],
 	},
 	"Tactical Assault Rifle": {
-		ammo: {
+		magazines: {
 			Standard: "9",
 			Light: "10",
 			Quick: "11",
@@ -433,7 +434,7 @@ const primary = {
 		muzzles: muzzles[1],
 	},
 	"Tactical SMG": {
-		ammo: {
+		magazines: {
 			Standard: "107",
 			Light: "108",
 			Quick: "109",
@@ -453,14 +454,14 @@ const primary = {
 
 const secondary = {
 	"Breech Loaded Pistol": {
-		ammo: { Explosive: "134", Incendiary: "135", Scattershot: "176" },
+		magazines: { Explosive: "134", Incendiary: "135", Scattershot: "176" },
 		grips: grips[0],
 		barrels: barrels[5],
 		stocks: stocks[2],
 		muzzles: muzzles[0],
 	},
 	"Burstfire Pistol": {
-		ammo: {
+		magazines: {
 			Standard: "72",
 			Light: "73",
 			Quick: "74",
@@ -478,7 +479,7 @@ const secondary = {
 		muzzles: muzzles[2],
 	},
 	"Heavy Pistol": {
-		ammo: {
+		magazines: {
 			Standard: "45",
 			Light: "46",
 			Quick: "47",
@@ -496,7 +497,7 @@ const secondary = {
 		muzzles: muzzles[2],
 	},
 	"Light Pistol": {
-		ammo: {
+		magazines: {
 			Standard: "54",
 			Light: "55",
 			Quick: "56",
@@ -514,7 +515,7 @@ const secondary = {
 		muzzles: muzzles[2],
 	},
 	"Machine Pistol": {
-		ammo: {
+		magazines: {
 			Standard: "63",
 			Light: "64",
 			Quick: "65",
@@ -532,14 +533,14 @@ const secondary = {
 		muzzles: muzzles[2],
 	},
 	None: {
-		ammo: { Standard: "9" },
+		magazines: { Standard: "9" },
 		grips: grips[0],
 		barrels: barrels[5],
 		stocks: stocks[2],
 		muzzles: muzzles[0],
 	},
 	"Prestige Light Pistol": {
-		ammo: {
+		magazines: {
 			Standard: "54",
 			Light: "55",
 			Quick: "56",
@@ -557,7 +558,7 @@ const secondary = {
 		muzzles: muzzles[2],
 	},
 	Revolver: {
-		ammo: {
+		magazines: {
 			Standard: "99",
 			Electro: "100",
 			Explosive: "101",
@@ -571,7 +572,7 @@ const secondary = {
 		muzzles: muzzles[0],
 	},
 	Shotgun: {
-		ammo: {
+		magazines: {
 			Standard: "29",
 			Light: "30",
 			Quick: "31",
@@ -590,7 +591,7 @@ const secondary = {
 		muzzles: muzzles[0],
 	},
 	"Shotgun AR-k": {
-		ammo: {
+		magazines: {
 			Standard: "124",
 			Light: "125",
 			Quick: "126",
@@ -609,7 +610,7 @@ const secondary = {
 		muzzles: muzzles[0],
 	},
 	"Snub 260": {
-		ammo: {
+		magazines: {
 			Standard: "177",
 			Precision: "178",
 			Caliber: "179",
