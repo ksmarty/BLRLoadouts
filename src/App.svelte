@@ -89,16 +89,13 @@
 
 	$: template =
 		"register\n" +
-		JSON.stringify(
-			{
-				PlayerName: user,
-				Loadout1: loadouts[0],
-				Loadout2: loadouts[1],
-				Loadout3: loadouts[2],
-			},
-			null,
-			2
-		);
+		JSON.stringify({
+			DiscordId: 0,
+			PlayerName: user,
+			Loadout1: loadouts[0],
+			Loadout2: loadouts[1],
+			Loadout3: loadouts[2],
+		});
 </script>
 
 <div class="App uk-padding-small">
