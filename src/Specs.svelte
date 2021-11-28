@@ -97,30 +97,32 @@
 	).map((e) => [...e, modifierStats[e[0]] ?? ""]);
 </script>
 
-<div class="uk-card uk-card-small uk-card-default">
-	<!-- <div class="uk-card-media-top">
-		<img src="images/light.jpg" alt="" />
-	</div> -->
-	<div class="uk-card-body" uk-grid>
-		<!-- <h3 class="uk-card-title">Media Top</h3> -->
-		{#each gun as spec}
-			<div class="uk-width-1-3 uk-text-bold">{spec[0]}</div>
-			<div class="uk-width-1-3 uk-text-center">{spec[1]}</div>
-			{#if spec[0] === "Fire Mode"}
-				<div class="uk-width-1-3" />
-			{:else}
-				<div
-					class="uk-width-1-3 uk-text-center uk-text-{parseFloat(
-						spec[2]
-					) > 0
-						? 'primary'
-						: 'danger'}"
-				>
-					{spec[2]}
-				</div>
-			{/if}
+<div class="uk-card uk-card-small uk-card-default uk-height-1-1 uk-margin-left">
+	<div
+		class="uk-flex uk-flex-column uk-card-body uk-height-1-1 uk-padding-remove-vertical"
+	>
+		<span class="uk-margin-small" />
+		{#each gun as spec, i}
+			<div class="uk-width-1-1 uk-flex uk-margin-auto-vertical">
+				<div class="uk-width-1-3 uk-text-bold">{spec[0]}</div>
+				<div class="uk-width-1-3 uk-text-center">{spec[1]}</div>
+				{#if spec[0] === "Fire Mode"}
+					<div class="uk-width-1-3" />
+				{:else}
+					<div
+						class="uk-width-1-3 uk-text-center uk-text-{parseFloat(
+							spec[2]
+						) > 0
+							? 'primary'
+							: 'danger'}"
+					>
+						{spec[2]}
+					</div>
+				{/if}
+			</div>
 		{:else}
 			<div>That's the none-gun</div>
 		{/each}
+		<span class="uk-margin-small" />
 	</div>
 </div>

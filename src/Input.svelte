@@ -29,10 +29,20 @@
 			select.disabled = true;
 			loadout[primary ? "Primary" : "Secondary"].Stock = "No Stock";
 		} else select.disabled = false;
+
+		if (
+			name === "Grip" &&
+			loadout[primary ? "Primary" : "Secondary"].Receiver !== "Shotgun"
+		) {
+			select.disabled = true;
+		}
 	});
 </script>
 
-<div class="uk-margin-small">
+<div
+	class={primary && name === "Grip" ? "uk-invisible" : ""}
+	style="margin-bottom: 0.25rem"
+>
 	<label
 		class="uk-form-label"
 		for="{primary ? 'primary' : 'secondary'}-{name.toLowerCase()}"

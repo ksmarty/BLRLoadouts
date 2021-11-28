@@ -147,111 +147,126 @@
 	<ul class="uk-switcher uk-margin">
 		{#each loadouts as loadout}
 			<li>
-				<form class="uk-form-stacked uk-grid-small" uk-grid>
+				<form
+					class="uk-form-stacked uk-flex uk-flex-wrap uk-grid-column-small"
+				>
 					{#each ["Primary", "Secondary"] as A, i}
-						<div class="uk-width-1-1">
-							<legend class="uk-legend">{A} Weapon</legend>
-						</div>
+						<div
+							class="uk-flex uk-flex-wrap uk-width-1-1 uk-width-1-2@l"
+						>
+							<legend
+								class="uk-legend uk-width-1-1 uk-margin-small-bottom"
+								>{A} Weapon</legend
+							>
 
-						<div class="uk-width-1-2">
-							<Input
-								bind:loadout
-								name={"Receiver"}
-								primary={!i}
-								itter={Object.entries(!i ? primary : secondary)}
-							/>
-							<Input
-								name={"Magazine"}
-								primary={!i}
-								bind:loadout
-								itter={Object.entries(
-									(!i ? primary : secondary)[
+							<div class="uk-width-1-2 uk-flex uk-flex-column">
+								<Input
+									bind:loadout
+									name={"Receiver"}
+									primary={!i}
+									itter={Object.entries(
+										!i ? primary : secondary
+									)}
+								/>
+								<Input
+									name={"Magazine"}
+									primary={!i}
+									bind:loadout
+									itter={Object.entries(
+										(!i ? primary : secondary)[
+											loadout[A].Receiver
+										].magazines
+									)}
+								/>
+								<Input
+									name={"Barrel"}
+									primary={!i}
+									bind:loadout
+									itter={(!i ? primary : secondary)[
 										loadout[A].Receiver
-									].magazines
-								)}
-							/>
-							<Input
-								name={"Barrel"}
-								primary={!i}
-								bind:loadout
-								itter={(!i ? primary : secondary)[
-									loadout[A].Receiver
-								].barrels}
-							/>
-							<Input
-								name={"Stock"}
-								primary={!i}
-								bind:loadout
-								itter={(!i ? primary : secondary)[
-									loadout[A].Receiver
-								].stocks}
-							/>
-							<Input
-								name={"Muzzle"}
-								primary={!i}
-								bind:loadout
-								itter={Object.entries(
-									(!i ? primary : secondary)[
+									].barrels}
+								/>
+								<Input
+									name={"Stock"}
+									primary={!i}
+									bind:loadout
+									itter={(!i ? primary : secondary)[
 										loadout[A].Receiver
-									].muzzles
-								)}
-							/>
-							<Input
-								name={"Scope"}
-								primary={!i}
-								bind:loadout
-								itter={scopes}
-							/>
-							{#if i}
+									].stocks}
+								/>
+								<Input
+									name={"Muzzle"}
+									primary={!i}
+									bind:loadout
+									itter={Object.entries(
+										(!i ? primary : secondary)[
+											loadout[A].Receiver
+										].muzzles
+									)}
+								/>
+								<Input
+									name={"Scope"}
+									primary={!i}
+									bind:loadout
+									itter={scopes}
+								/>
 								<Input
 									name={"Grip"}
+									primary={!i}
 									bind:loadout
 									itter={secondary[loadout.Secondary.Receiver]
 										.grips}
 								/>
-							{/if}
-						</div>
-						<div class="uk-width-1-2">
-							<Specs {loadout} primary={!i} />
-						</div>
-					{/each}
-
-					<div class="uk-width-1-1">
-						<legend class="uk-legend">Gear</legend>
-					</div>
-					{#each [1, 2, 3, 4] as i}
-						<div class="uk-margin-small-top uk-width-1-2">
-							<label class="uk-form-label" for="gear{i}"
-								>Gear {i}</label
-							>
-							<div class="uk-form-controls">
-								<select
-									class="uk-select"
-									id="gear{i}"
-									bind:value={loadout[`Gear${i}`]}
-								>
-									{#each Object.entries(gear) as e}
-										<option>{e[0]}</option>
-									{/each}
-								</select>
+							</div>
+							<div class="uk-width-1-2">
+								<Specs {loadout} primary={!i} />
 							</div>
 						</div>
 					{/each}
 
-					<div class="uk-width-1-2">
-						<label class="uk-form-label" for="tactical"
-							>Tactical</label
-						>
-						<div class="uk-form-controls">
-							<select
-								class="uk-select"
-								id="tactical"
-								bind:value={loadout.Tactical}
+					<br />
+					<div
+						class="uk-flex uk-flex-wrap uk-grid-column-small uk-width-1-1 uk-margin-small-top uk-padding-remove-left"
+					>
+						<div class="uk-width-1-1 uk-margin-small-bottom">
+							<legend class="uk-legend">Gear</legend>
+						</div>
+						{#each [1, 2, 3, 4] as i}
+							<div
+								class="uk-width-1-2 uk-width-1-5@l uk-margin-small-bottom"
 							>
-								{#each Object.entries(tactical) as e}
-									<option>{e[0]}</option>
-								{/each}
-							</select>
+								<label class="uk-form-label" for="gear{i}"
+									>Gear {i}</label
+								>
+								<div class="uk-form-controls">
+									<select
+										class="uk-select"
+										id="gear{i}"
+										bind:value={loadout[`Gear${i}`]}
+									>
+										{#each Object.entries(gear) as e}
+											<option>{e[0]}</option>
+										{/each}
+									</select>
+								</div>
+							</div>
+						{/each}
+
+						<div class="uk-width-1-2 uk-width-1-5@l">
+							<label class="uk-form-label" for="tactical"
+								>Tactical</label
+							>
+							<div class="uk-form-controls">
+								<select
+									class="uk-select"
+									id="tactical"
+									bind:value={loadout.Tactical}
+								>
+									{#each Object.entries(tactical) as e}
+										<option>{e[0]}</option>
+									{/each}
+								</select>
+							</div>
 						</div>
 					</div>
 				</form>
