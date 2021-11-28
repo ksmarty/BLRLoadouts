@@ -104,6 +104,12 @@
 <div class="App uk-padding-small">
 	<h1>BLR Loadout Generator</h1>
 
+	<div class="uk-position-small uk-position-top-right">
+		<div class="uk-alert-danger" uk-alert>
+			<p>Stats are not currently correct and are just placeholders.</p>
+		</div>
+	</div>
+
 	<div class="uk-margin">
 		<div class="uk-form-controls">
 			<input
