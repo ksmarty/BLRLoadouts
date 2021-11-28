@@ -284,7 +284,7 @@
       "Hip": "-0.11°",
       "Move": "+0.33°",
       "Scope In": "-0.02s",
-      "Range": "72/112",
+      "Range": "+0.02",
       "Run": "-0.04"
     },
     "Krane Assault Barrel": {
@@ -685,7 +685,7 @@
       },
       "Extended": {
         "Ammo": "+3/+12",
-        "Run": "-0.10"
+        "Run: -0.10": ""
       },
       "Express": {
         "Reload": "-0.57",
@@ -847,18 +847,18 @@
         "None": ""
       },
       "Light": {
-        "Run": "+0.09"
+        "Run: +0.09": ""
       },
       "Quick": {
-        "Reload": "-0.39"
+        "Reload: -0.39": ""
       },
       "Extended": {
         "Ammo": "+6/+24",
-        "Run": "-0.09"
+        "Run: -0.09": ""
       },
       "Express": {
-        "Reload": "-0.22",
-        "Run": "+0.05"
+        "Reload: -0.22": "",
+        "Run: +0.05": ""
       }
     },
     "Shotgun Mags": {
@@ -936,18 +936,18 @@
         "None": ""
       },
       "Light": {
-        "Run": "+0.09"
+        "Run: +0.09": ""
       },
       "Quick": {
-        "Reload": "-0.36"
+        "Reload: -0.36": ""
       },
       "Extended": {
         "Ammo": "+6/+24",
-        "Run": "-0.09"
+        "Run: -0.09": ""
       },
       "Express": {
-        "Reload": "-0.21",
-        "Run": "+0.05"
+        "Reload: -0.21": "",
+        "Run: +0.05": ""
       }
     },
     "Shotgun AR-k Mags": {
@@ -978,7 +978,7 @@
         "Run": "-0.54"
       }
     },
-    "Breech Loaded Pistol Mags": {
+    "Breech Loaded Pistol": {
       "Explosive": {
         "None": ""
       },
@@ -1005,11 +1005,6 @@
         "Spread": "-0.35/-0.85/-1.70",
         "Recoil": "+1.21",
         "Range": "+20/+20"
-      }
-    },
-    "Anti-Material Rifle Mags": {
-      "Standard": {
-        "None": ""
       }
     }
   },
@@ -1493,21 +1488,6 @@
       "Aim": "1.15°",
       "Hip": "2.86°",
       "Move": "5.66°"
-    },
-    "None": {
-      "Damage": "0",
-      "Ammo": "0/0",
-      "Reload": "0s",
-      "Fire Mode": "None",
-      "Firerate": "0",
-      "Zoom": "0",
-      "Recoil": "0°",
-      "Scope In": "0s",
-      "Range": "0/0",
-      "Run": "0",
-      "Aim": "0°",
-      "Hip": "0°",
-      "Move": "0°"
     }
   }
 }

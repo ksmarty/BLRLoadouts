@@ -40,12 +40,38 @@ const funcs = [
 	async (page, key) => {
 		if (key === "Breech Loaded Pistol")
 			return {
-				"Breech Loaded Pistol": {
-					"HE Round Bore": { None: "" },
-					"Incendiary Round Bore": { Damage: "+50" },
-					"Flechette Chamber Boring": {
+				"Breech Loaded Pistol Mags": {
+					Explosive: { None: "" },
+					Incendiary: { Damage: "+50" },
+					Scattershot: {
 						Damage: "-200",
 						Range: "+28/+40",
+					},
+				},
+			};
+		else if (key === "Compound Bow Arrows")
+			return {
+				"Compound Bow Arrows": {
+					Standard: {
+						None: "",
+					},
+					Explosive: {
+						None: "",
+					},
+					Stun: {
+						None: "",
+					},
+					Poison: {
+						None: "",
+					},
+					Light: {
+						None: "",
+					},
+					Heavy: {
+						None: "",
+					},
+					Cupid: {
+						None: "",
 					},
 				},
 			};
@@ -60,7 +86,31 @@ const funcs = [
 							? [...rawData.splice(i + 1, 3)] && acc
 							: {
 									...acc,
-									[cur]: [...rawData.splice(i + 1, 3)][1]
+									[[
+										"default",
+										"extra large",
+										"quick reload",
+										"quick reload/run",
+										"drum",
+										"drum - extra large",
+										"quick reloading",
+										"damage",
+									].indexOf(rawData[i + 1].toLowerCase()) !==
+									-1
+										? {
+												default: "Standard",
+												"extra large": "Extended",
+												"quick reload": "Quick",
+												"quick reload/run": "Express",
+												drum: "Drummed",
+												"drum - extra large":
+													"Relentless",
+												"quick reloading": "Quick",
+												damage: "Caliber",
+										  }[rawData[i + 1].toLowerCase()]
+										: rawData[i + 1]]: [
+										...rawData.splice(i + 1, 3),
+									][1]
 										?.split("\n")
 										.reduce(
 											(acc2, cur2) => ({

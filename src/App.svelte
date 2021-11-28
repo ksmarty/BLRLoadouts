@@ -12,7 +12,7 @@
 	const loadouts = [
 		{
 			Primary: {
-				Reciever: "AK470 Rifle",
+				Receiver: "AK470 Rifle",
 				Magazine: "Standard",
 				Barrel: "ArmCom Assault Barrel",
 				Stock: "Redsand Compensator Stock",
@@ -21,7 +21,7 @@
 				Grip: "",
 			},
 			Secondary: {
-				Reciever: "Breech Loaded Pistol",
+				Receiver: "Breech Loaded Pistol",
 				Magazine: "Explosive",
 				Barrel: "No Barrel Mod",
 				Stock: "No Stock",
@@ -37,7 +37,7 @@
 		},
 		{
 			Primary: {
-				Reciever: "AK470 Rifle",
+				Receiver: "AK470 Rifle",
 				Magazine: "Standard",
 				Barrel: "ArmCom Assault Barrel",
 				Stock: "Redsand Compensator Stock",
@@ -46,7 +46,7 @@
 				Grip: "",
 			},
 			Secondary: {
-				Reciever: "Breech Loaded Pistol",
+				Receiver: "Breech Loaded Pistol",
 				Magazine: "Explosive",
 				Barrel: "No Barrel Mod",
 				Stock: "No Stock",
@@ -62,7 +62,7 @@
 		},
 		{
 			Primary: {
-				Reciever: "AK470 Rifle",
+				Receiver: "AK470 Rifle",
 				Magazine: "Standard",
 				Barrel: "ArmCom Assault Barrel",
 				Stock: "Redsand Compensator Stock",
@@ -71,7 +71,7 @@
 				Grip: "",
 			},
 			Secondary: {
-				Reciever: "Breech Loaded Pistol",
+				Receiver: "Breech Loaded Pistol",
 				Magazine: "Explosive",
 				Barrel: "No Barrel Mod",
 				Stock: "No Stock",
@@ -130,8 +130,11 @@
 	<hr class="uk-divider-icon" />
 
 	<ul uk-tab>
+		<!-- svelte-ignore a11y-invalid-attribute -->
 		<li><a href="#">Loadout 1</a></li>
+		<!-- svelte-ignore a11y-invalid-attribute -->
 		<li><a href="#">Loadout 2</a></li>
+		<!-- svelte-ignore a11y-invalid-attribute -->
 		<li><a href="#">Loadout 3</a></li>
 	</ul>
 
@@ -147,7 +150,7 @@
 						<div class="uk-width-1-2">
 							<Input
 								bind:loadout
-								name={"Reciever"}
+								name={"Receiver"}
 								primary={!i}
 								itter={Object.entries(!i ? primary : secondary)}
 							/>
@@ -157,7 +160,7 @@
 								bind:loadout
 								itter={Object.entries(
 									(!i ? primary : secondary)[
-										loadout[A].Reciever
+										loadout[A].Receiver
 									].magazines
 								)}
 							/>
@@ -166,7 +169,7 @@
 								primary={!i}
 								bind:loadout
 								itter={(!i ? primary : secondary)[
-									loadout[A].Reciever
+									loadout[A].Receiver
 								].barrels}
 							/>
 							<Input
@@ -174,7 +177,7 @@
 								primary={!i}
 								bind:loadout
 								itter={(!i ? primary : secondary)[
-									loadout[A].Reciever
+									loadout[A].Receiver
 								].stocks}
 							/>
 							<Input
@@ -183,7 +186,7 @@
 								bind:loadout
 								itter={Object.entries(
 									(!i ? primary : secondary)[
-										loadout[A].Reciever
+										loadout[A].Receiver
 									].muzzles
 								)}
 							/>
@@ -197,7 +200,7 @@
 								<Input
 									name={"Grip"}
 									bind:loadout
-									itter={secondary[loadout.Secondary.Reciever]
+									itter={secondary[loadout.Secondary.Receiver]
 										.grips}
 								/>
 							{/if}

@@ -4,16 +4,38 @@
 	export let loadout;
 	export let primary;
 
-	$: modifiers = Object.keys(loadout.Primary).reduce(
-		(acc, cur) => ({
-			...acc,
-			[cur]:
-				specs[`${cur}s`]?.[
-					loadout[primary ? "Primary" : "Secondary"][cur]
-				] ?? null,
-		}),
-		{}
-	);
+	$: modifiers = Object.keys(loadout.Primary)
+		.filter((e) => e !== "Receiver")
+		.reduce(
+			(acc, cur) => ({
+				...acc,
+				[cur]:
+					cur !== "Magazine"
+						? specs[`${cur}s`][
+								loadout[primary ? "Primary" : "Secondary"][cur]
+						  ]
+						: specs.Magazines[
+								{
+									"Submachine Gun": "SMG Mags",
+									"Light Machine Gun": "LMG Mags",
+									"Burstfire SMG": "BSMG Mags",
+									"M4X Rifle": "M4X Mags",
+									"Bullpup Full Auto": "BPFA Mags",
+									"Tactical SMG": "TSMG Mags",
+									"Compound Bow": "Compound Bow Arrows",
+								}[
+									loadout[primary ? "Primary" : "Secondary"]
+										.Receiver
+								] ||
+									loadout[primary ? "Primary" : "Secondary"]
+										.Receiver + " Mags"
+						  ]?.[
+								loadout[primary ? "Primary" : "Secondary"]
+									.Magazine
+						  ] ?? null,
+			}),
+			{}
+		);
 
 	$: modifierStats = Object.fromEntries(
 		Object.entries(
@@ -71,7 +93,7 @@
 	);
 
 	$: gun = Object.entries(
-		specs.Receivers[loadout[primary ? "Primary" : "Secondary"].Reciever]
+		specs.Receivers[loadout[primary ? "Primary" : "Secondary"].Receiver]
 	).map((e) => [...e, modifierStats[e[0]] ?? ""]);
 </script>
 
