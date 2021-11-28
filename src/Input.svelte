@@ -17,6 +17,18 @@
 			select.selectedIndex = 0;
 			loadout[primary ? "Primary" : "Secondary"][name] = select.value;
 		}
+
+		if (
+			/(?:Heavy|Light) Pistol/.test(
+				loadout[primary ? "Primary" : "Secondary"].Receiver
+			) &&
+			name === "Stock" &&
+			loadout[primary ? "Primary" : "Secondary"].Barrel ===
+				"No Barrel Mod"
+		) {
+			select.disabled = true;
+			loadout[primary ? "Primary" : "Secondary"].Stock = "No Stock";
+		} else select.disabled = false;
 	});
 </script>
 

@@ -484,7 +484,7 @@ const secondary = {
 		},
 		grips: grips[0],
 		barrels: barrels[4],
-		stocks: stocks[2],
+		stocks: stocks[0],
 		muzzles: muzzles[2],
 	},
 	"Light Pistol": {
@@ -502,7 +502,7 @@ const secondary = {
 		},
 		grips: grips[0],
 		barrels: barrels[4],
-		stocks: stocks[2],
+		stocks: stocks[0],
 		muzzles: muzzles[2],
 	},
 	"Machine Pistol": {
