@@ -1,8 +1,23 @@
 <script>
+	import { afterUpdate } from "svelte";
+
 	export let name;
 	export let primary = false;
 	export let loadout;
 	export let itter;
+
+	let select;
+
+	afterUpdate(() => {
+		if (
+			(loadout[primary ? "Primary" : "Secondary"][name] &&
+				!select.value) ||
+			!loadout[primary ? "Primary" : "Secondary"][name]
+		) {
+			select.selectedIndex = 0;
+			loadout[primary ? "Primary" : "Secondary"][name] = select.value;
+		}
+	});
 </script>
 
 <div class="uk-margin-small">
@@ -13,15 +28,14 @@
 	>
 	<div class="uk-form-controls">
 		<select
+			bind:this={select}
 			class="uk-select"
-			id="primary-reciever"
+			id="{primary ? 'primary' : 'secondary'}-{name.toLowerCase()}"
 			disabled={!itter.length}
 			bind:value={loadout[primary ? "Primary" : "Secondary"][name]}
 		>
 			{#each itter as e}
 				<option>{e.constructor === Array ? e[0] : e}</option>
-			{:else}
-				<option value="" selected disabled>None</option>
 			{/each}
 		</select>
 	</div>
